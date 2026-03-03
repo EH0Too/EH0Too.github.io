@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Почему я тебя люблю 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Quicksand', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #ffe5f0 0%, #ffdae9 50%, #fecfdf 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        body::before {
+            content: "❤️🧡💛💚💙💜";
+            font-size: 90px;
+            position: absolute;
+            top: 30px;
+            left: 10px;
+            opacity: 0.15;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 250, 250, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 55px;
+            padding: 35px 25px;
+            border: 3px solid white;
+            box-shadow: 0 25px 40px -5px #ffb0c9;
+            z-index: 5;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffecf2;
+            padding: 12px 20px;
+            border-radius: 60px;
+            border: 2px solid white;
+            margin-bottom: 30px;
+            color: #a13762;
+            font-weight: 600;
+        }
+        .title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #a1305a;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .reasons-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .reason-item {
+            background: white;
+            border-radius: 60px;
+            padding: 14px 20px 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #ffb0c9;
+            box-shadow: 0 5px 0 #f797b5;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .reason-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .heart-icon {
+            font-size: 2rem;
+            color: #ff3b6f;
+        }
+        .reason-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #5f2e41;
+        }
+        .hidden-message {
+            background: #ffe5f0;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: #ad4370;
+            font-weight: 500;
+            border: 1px dashed #ff99bb;
+            max-width: 230px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .reason-item.expanded .hidden-message {
+            white-space: normal;
+            background: #ffe0ed;
+        }
+        .next-link {
+            text-align: right;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ac3f69;
+        }
+        .next-link a {
+            text-decoration: none;
+            color: inherit;
+            background: #ffb8cf;
+            padding: 10px 25px;
+            border-radius: 40px;
+            display: inline-block;
+            border: 2px solid white;
+            box-shadow: 0 5px 0 #b34b6b;
+            transition: 0.1s;
+        }
+        .next-link a:active {
+            transform: translateY(5px);
+            box-shadow: 0 1px 0 #b34b6b;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #a9446b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <i class="heart-icon">❤️</i> Почему я тебя люблю
+        </div>
+        <div class="reasons-grid">
+            <div class="reason-item" onclick="toggleReason(this)" data-message="Ты моя опора и вдохновение">
+                <div class="reason-left">
+                    <span class="heart-icon">❤️</span>
+                    <span class="reason-text">Твоя преданность</span>
+                </div>
+                <div class="hidden-message">нажми ❤️</div>
+            </div>
+            <div class="reason-item" onclick="toggleReason(this)" data-message="Твои руки — самое уютное место">
+                <div class="reason-left">
+                    <span class="heart-icon">❤️</span>
+                    <span class="reason-text">Твоя нежность</span>
+                </div>
+                <div class="hidden-message">нажми ❤️</div>
+            </div>
+            <div class="reason-item" onclick="toggleReason(this)" data-message="Ты смешишь меня даже когда грустно">
+                <div class="reason-left">
+                    <span class="heart-icon">❤️</span>
+                    <span class="reason-text">Твой юмор</span>
+                </div>
+                <div class="hidden-message">нажми ❤️</div>
+            </div>
+            <div class="reason-item" onclick="toggleReason(this)" data-message="Твоя улыбка сводит с ума">
+                <div class="reason-left">
+                    <span class="heart-icon">❤️</span>
+                    <span class="reason-text">Твоя красота</span>
+                </div>
+                <div class="hidden-message">нажми ❤️</div>
+            </div>
+            <div class="reason-item expanded" onclick="toggleReason(this)" data-message="У тебя самое доброе сердце">
+                <div class="reason-left">
+                    <span class="heart-icon">❤️</span>
+                    <span class="reason-text">Твоё сердце</span>
+                </div>
+                <div class="hidden-message">У тебя самое доброе сердце</div>
+            </div>
+            <div class="reason-item expanded" onclick="toggleReason(this)" data-message="Я хочу провести его с тобой">
+                <div class="reason-left">
+                    <span class="heart-icon">❤️</span>
+                    <span class="reason-text">Наше будущее</span>
+                </div>
+                <div class="hidden-message">Я хочу провести его с тобой</div>
+            </div>
+        </div>
+        <div class="next-link">
+            <a href="page3.html">Далее →</a>
+        </div>
+        <div class="footer">Сделал специально для тебя 😊</div>
+    </div>
+    <script>
+        function toggleReason(el) {
+            const hidden = el.querySelector('.hidden-message');
+            const msg = el.getAttribute('data-message');
+            if (hidden.innerText === 'нажми ❤️' || hidden.innerText.includes('нажми')) {
+                hidden.innerText = msg;
+                el.classList.add('expanded');
+            } else {
+                hidden.innerText = 'нажми ❤️';
+                el.classList.remove('expanded');
+            }
+        }
+    </script>
+</body>
+</html>
